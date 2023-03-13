@@ -1,7 +1,7 @@
 ---
 - name: Enable extra packages for RHEL OS family
   become: yes
-  package: name=epel-release
+  package: name=epel-release state=latest
   when: >
     x2goclient_install == True
     and (ansible_os_family|lower == "redhat" or
