@@ -1,4 +1,5 @@
-- name: Include tasks {{ ansible_system }} operating system
+---
+- name: Include tasks for {{ ansible_system }} operating system
   include_tasks: "{{ ansible_system | lower }}.yml"
   tags: x2goclient
 
