@@ -7,7 +7,7 @@ None.
 
 ## Role Variables
 
-Available variables are listed below, along with default values (see `defaults/main.yml`):
+Variable(s) are listed below, along with default values (see `defaults/main.yml`):
 
 - `x2goclient_install: True`: boolean value to control the installation process.
 	- `True` - install
