@@ -1,10 +1,11 @@
 ---
-- name: Enable extra packages for {{ ansible_os_family }} OS family
+- name: Enable extra packages for RHEL OS family
   become: yes
   package: name=epel-release
   when: >
-    ansible_os_family|lower == "redhat"
-    and x2goclient_install == True
+    x2goclient_install == True
+    and (ansible_os_family|lower == "redhat" or
+     ansible_os_family|lower == "almalinux")
   tags: x2goclient
 
 - name: Install X2Go client
