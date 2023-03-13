@@ -27,4 +27,4 @@ MIT.
 
 ## Author Information
 
-[Adriano J. Holanda](https://ajholanda.github.io)
+[Adriano J. Holanda](https://ajholanda.github.io).
