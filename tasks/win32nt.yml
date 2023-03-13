@@ -2,9 +2,9 @@
 - name: Install/upgrade X2Go client
   win_chocolatey: name=x2go
   when: x2goclient_install
-  tags: x2go
+  tags: x2goclient
 
 - name: Uninstall X2G client
   win_chocolatey: name=x2go state=absent
   when: not x2goclient_install
-  tags: x2go
+  tags: x2goclient
