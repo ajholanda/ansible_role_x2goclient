@@ -1,5 +1,6 @@
 ---
 - name: Enable extra packages for {{ ansible_os_family }} OS family
+  become: yes
   package: name=epel-release
   when: >
     ansible_os_family|lower == "redhat"
@@ -7,11 +8,13 @@
   tags: x2goclient
 
 - name: Install X2Go client
+  become: yes
   package: name=x2goclient state=latest
   when: x2goclient_install == True
   tags: x2goclient
 
 - name: Uninstall X2Go client
+  become: yes
   package: name=x2goclient state=absent
   when: x2goclient_install == False
   tags: x2goclient
