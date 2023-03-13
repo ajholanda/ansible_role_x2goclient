@@ -1,0 +1,15 @@
+---
+- name: Enable extra packages for {{ ansible_os_family }} OS family
+  package: name=epel-release
+  tags: x2goclient
+
+- name: Install X2Go client
+  package: name=x2goclient state=latest
+  when: x2goclient_install == True
+  tags: x2goclient
+
+- name: Uninstall X2Go client
+  package: name=x2goclient state=absent
+  when: x2goclient_install == False
+  tags: x2goclient
+

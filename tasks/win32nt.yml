@@ -1,0 +1,10 @@
+---
+- name: Install/upgrade X2Go client
+  win_chocolatey: name=x2go state=latest
+  when: x2goclient_install == True
+  tags: x2go
+
+- name: Uninstall X2G client
+  win_chocolatey: name=x2go state=absent
+  when: x2goclient_install == True
+  tags: x2go
