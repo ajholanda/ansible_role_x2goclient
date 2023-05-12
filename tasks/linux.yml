@@ -16,4 +16,3 @@
   package: name=x2goclient
   when: not x2goclient_install
   tags: x2goclient
-
