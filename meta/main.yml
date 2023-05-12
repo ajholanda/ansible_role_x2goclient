@@ -10,23 +10,13 @@ galaxy_info:
   platforms:
     - name: Fedora
       versions:
-        - 39
-        - 38
-        - 37
-        - 36
+        - all
     - name: Ubuntu
       versions:
-        - xenial
-        - bionic
-        - focal
+        - all
     - name: Debian
       version:
-        - jessie
-        - stretch
-        - buster
-        - oldstable
-        - stable
-        - testing
+        - all
     - name: EL
       versions:
         - 9
