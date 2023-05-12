@@ -8,8 +8,8 @@ None.
 ## Role Variables
 
 - `x2goclient_install: True`: boolean value to control the installation process.
-	- `True` - install
-	- `False` - uninstall
+	- `true` - install
+	- `false` - uninstall
 
 ## Dependencies
 
