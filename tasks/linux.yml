@@ -12,7 +12,7 @@
   when: ansible_pkg_mgr == "zypper"
 
 - name: Install X2Go client
-  package: name=x2goclient update_cache=yes
+  package: name=x2goclient
   when: x2goclient_install
   tags: x2goclient
 
