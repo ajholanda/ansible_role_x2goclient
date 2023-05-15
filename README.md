@@ -19,7 +19,7 @@ None.
 
     - hosts: all
       roles:
-        - ajholanda.ansible_role_x2goclient
+        - ajholanda.x2goclient
 
 ## License
 
