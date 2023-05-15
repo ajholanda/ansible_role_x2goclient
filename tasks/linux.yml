@@ -10,4 +10,3 @@
   package: name=x2goclient
   state: "{{ x2goclient_state }}"
   tags: x2goclient
-
