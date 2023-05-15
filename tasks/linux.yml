@@ -1,17 +1,13 @@
 ---
 - name: Enable extra packages for RHEL OS family
   package: name=epel-release
-  when: >
-    x2goclient_install
-    and ansible_pkg_mgr == "dnf"
+  when: |
+    ansible_pkg_mgr == "dnf"
+    and x2goclient_state != "absent"
   tags: x2goclient
 
 - name: Install X2Go client
   package: name=x2goclient
-  when: x2goclient_install
+  state: "{{ x2goclient_state }}"
   tags: x2goclient
 
-- name: Uninstall X2Go client
-  package: name=x2goclient
-  when: not x2goclient_install
-  tags: x2goclient

@@ -7,19 +7,28 @@ None.
 
 ## Role Variables
 
-- `x2goclient_install: True`: boolean value to control the installation process.
-	- `true` - install
-	- `false` - uninstall
-
+- `x2goclient_state`: desired state after running package manager task.
 ## Dependencies
 
 None.
 
 ## Example Playbook
 
+```
     - hosts: all
       roles:
         - ajholanda.x2goclient
+```
+
+To uninstall
+
+```
+    - hosts: all
+      vars:
+        x2goclient_state: absent
+      roles:
+        - ajholanda.x2goclient
+```
 
 ## License
 
