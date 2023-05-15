@@ -4,8 +4,8 @@
     name: "{{ item.name }}"
     repo: "{{ item.repo }}"
   loop:
-    - name: "x2go-extras"
-      repo: "https://packages.x2go.org/opensuse/{{ ansible_distribution_version }}/extras x2go-extras"
-    - name: "x2go-release"
-      repo: "https://packages.x2go.org/opensuse/{{ ansible_distribution_version }}/main x2go-release"
+    - name: "x2go"
+      repo: "https://packages.x2go.org/opensuse/{{ ansible_distribution_version }}/"
+        #    - name: "x2go-release"
+        #      repo: "https://packages.x2go.org/opensuse/{{ ansible_distribution_version }}/main x2go-release"
   tags: x2goclient
