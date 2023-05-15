@@ -3,13 +3,8 @@
   package: name=epel-release
   when: >
     x2goclient_install
-    and (ansible_os_family|lower == "redhat" or
-     ansible_os_family|lower == "almalinux")
+    and ansible_pkg_mgr == "dnf"
   tags: x2goclient
-
-- name: Include zypper tasks
-  include_tasks: zypper.yml
-  when: ansible_pkg_mgr == "zypper"
 
 - name: Install X2Go client
   package: name=x2goclient
