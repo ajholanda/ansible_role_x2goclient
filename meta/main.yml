@@ -1,5 +1,6 @@
 galaxy_info:
   author: Adriano J. Holanda
+  role_name: googlechrome
   description: Install or uninstall X2Go client for Linux or Windows
   company: University of São Paulo - USP, Brazil
 
