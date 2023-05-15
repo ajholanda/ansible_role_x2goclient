@@ -1,5 +1,5 @@
 ---
-- name: Install/upgrade X2Go client
+- name: Install X2Go client
   win_chocolatey: name=x2go
   when: x2goclient_install
   tags: x2goclient
