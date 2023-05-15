@@ -30,8 +30,7 @@ galaxy_info:
         - leap
     - name: Windows
       versions:
-        - 11
-        - 10
+        - all
 
   galaxy_tags:
     - linux
