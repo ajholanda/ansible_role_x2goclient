@@ -6,7 +6,7 @@
     and x2goclient_state != "absent"
   tags: x2goclient
 
-- name: Install X2Go client
+- name: Make X2Go client {{ x2goclient_state }}
   package: name=x2goclient
   state: "{{ x2goclient_state }}"
   tags: x2goclient
