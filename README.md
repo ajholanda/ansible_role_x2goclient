@@ -5,8 +5,9 @@ Ansible role to install or uninstall X2Go client for Linux or Windows.
 
 None.
 
-## Role Variable
+## Role Variables
 
+- `package_state`: set default value and may be used as global variable used across [ajholanda roles](https://galaxy.ansible.com/ajholanda). 
 - `x2goclient_state`: desired state after running package manager task.
 ## Dependencies
 
