@@ -7,7 +7,7 @@ None.
 
 ## Role Variables
 
-- `package_state`: set default value and may be used as global variable used across [ajholanda roles](https://galaxy.ansible.com/ajholanda). 
+- `package_state`: set a default value that can be used as a global variable across roles [ajholanda roles](https://galaxy.ansible.com/ajholanda). 
 - `x2goclient_state`: desired state after running package manager task.
 ## Dependencies
 
