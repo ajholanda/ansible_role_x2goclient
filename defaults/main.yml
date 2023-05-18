@@ -1,2 +1,3 @@
 ---
-x2goclient_state: present
+package_state: present
+x2goclient_state: "{{ package_state }}"
