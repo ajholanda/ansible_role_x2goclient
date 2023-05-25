@@ -1,4 +1,22 @@
 ---
-- name: Include tasks for {{ ansible_system }} operating system
-  include_tasks: "{{ ansible_system | lower }}.yml"
+- name: Enable extra packages for RHEL OS family
+  package:
+    name: epel-release
+  when: |
+    ansible_pkg_mgr == "dnf"
+    and x2goclient_state != "absent"
+  tags: x2goclient
+
+- name: Make X2Go client {{ x2goclient_state }}
+  package:
+    name: x2goclient
+    state: "{{ x2goclient_state }}"
+  when: ansible_system|lower == "linux"
+  tags: x2goclient
+
+- name: Install X2Go client on Windows
+  win_chocolatey:
+    name: x2go
+    state: "{{ x2goclient_state }}"
+  when: ansible_system|lower == "win32nt"
   tags: x2goclient
