@@ -3,7 +3,9 @@
   package:
     name: epel-release
   when: |
-    ansible_pkg_mgr == "dnf"
+    ansible_distribution is defined
+    and (ansible_distribution|lower == "almalinux"
+         or ansible_distribution|lower == "redhat")
     and x2goclient_state != "absent"
   tags: x2goclient
 
@@ -11,6 +13,7 @@
   package:
     name: x2goclient
     state: "{{ x2goclient_state }}"
+    update_cache: true
   when: ansible_system|lower == "linux"
   tags: x2goclient
 
@@ -19,4 +22,4 @@
     name: x2go
     state: "{{ x2goclient_state }}"
   when: ansible_system|lower == "win32nt"
-  tags: x2goclient
+  tags: win_chocolatey, x2goclient
