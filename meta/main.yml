@@ -23,11 +23,6 @@ galaxy_info:
         - 9
         - 8
         - 7
-    - name: opensuse
-      vesrions:
-        - 15.4
-        - tumbleweed
-        - leap
     - name: Windows
       versions:
         - all
