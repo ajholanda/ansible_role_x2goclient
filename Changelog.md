@@ -1,6 +1,6 @@
 # Changes by release
 
-## [1.2.0] 2025-06-20
+## [1.3.0] 2025-06-20
 
 - Use namespace in the modules.
 - Fix the value type of versions.
