@@ -1,6 +1,6 @@
 ---
 - name: Enable extra packages for RHEL OS family
-  package:
+  ansible.builtin.package:
     name: epel-release
   when: |
     ansible_distribution is defined
@@ -10,7 +10,7 @@
   tags: x2goclient
 
 - name: Make X2Go client {{ x2goclient_state }}
-  package:
+  ansible.builtin.package:
     name: x2goclient
     state: "{{ x2goclient_state }}"
     update_cache: true
@@ -18,7 +18,7 @@
   tags: x2goclient
 
 - name: Install X2Go client on Windows
-  win_chocolatey:
+  chocolatey.chocolatey.win_chocolatey:
     name: x2go
     state: "{{ x2goclient_state }}"
   when: ansible_system|lower == "win32nt"
