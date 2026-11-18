@@ -38,6 +38,9 @@ galaxy_info:
     - debian
     - suse
     - opensuse
+    - almalinux
+    - rocky
+    - rhel
     - centos
     - windows
     - windows10
