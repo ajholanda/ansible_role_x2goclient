@@ -1,0 +1,15 @@
+FROM {{ item.image }}
+
+RUN if command -v apt-get > /dev/null 2>&1; then \
+      apt-get update \
+      && apt-get install -y --no-install-recommends \
+         ca-certificates python3 sudo \
+      && rm -rf /var/lib/apt/lists/*; \
+    elif command -v microdnf > /dev/null 2>&1; then \
+      microdnf install -y python3 python3-dnf sudo \
+      && microdnf clean all; \
+    elif command -v zypper > /dev/null 2>&1; then \
+      zypper --non-interactive refresh \
+      && zypper --non-interactive install --no-recommends -y python3 python3-pip sudo \
+      && zypper clean --all; \
+    fi
