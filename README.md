@@ -1,4 +1,7 @@
 # Ansible role x2goclient
+
+[![Molecule CI](https://github.com/ajholanda/ansible_role_x2goclient/actions/workflows/molecule.yml/badge.svg)](https://github.com/ajholanda/ansible_role_x2goclient/actions/workflows/molecule.yml)
+
 Ansible role to install or uninstall X2Go client for Linux or Windows.
 
 ## Requirements
