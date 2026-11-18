@@ -24,6 +24,9 @@ galaxy_info:
         - "9"
         - "8"
         - "7"
+    - name: opensuse
+      versions:
+        - "15"
     - name: Windows
       versions:
         - all
