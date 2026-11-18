@@ -1,6 +1,8 @@
 ---
 - name: Converge
   hosts: all
+  gather_facts: true
   become: false
+
   roles:
     - role: ajholanda.x2goclient
