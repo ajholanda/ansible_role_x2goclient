@@ -3,23 +3,36 @@
   ansible.builtin.package:
     name: epel-release
   when: |
-    ansible_distribution is defined
-    and (ansible_distribution|lower == "almalinux"
-         or ansible_distribution|lower == "redhat")
+    (ansible_facts['distribution'] | lower == "almalinux"
+     or ansible_facts['distribution'] | lower == "redhat")
     and x2goclient_state != "absent"
   tags: x2goclient
 
+- name: Add X2Go repository on openSUSE
+  community.general.zypper_repository:
+    name: x2go
+    repo: 'https://download.opensuse.org/repositories/X11:RemoteDesktop:x2go/openSUSE_Tumbleweed/'
+    auto_import_keys: true
+    state: "{{ x2goclient_state }}"
+  when: ansible_os_family == "Suse"
+
+# AlmaLinux >= 10 is compatible with Wayland
 - name: Make X2Go client {{ x2goclient_state }}
   ansible.builtin.package:
     name: x2goclient
     state: "{{ x2goclient_state }}"
     update_cache: true
-  when: ansible_system|lower == "linux"
-  tags: x2goclient
+  when: >-
+    ansible_facts['system'] | lower == "linux"
+    and not (ansible_facts['os_family'] == "RedHat" 
+             and ansible_facts['distribution_major_version'] | int >= 10)
+  tags: 
+    - x2goclient
 
-- name: Install X2Go client on Windows
+- name: Make X2Go client for Windows {{ x2goclient_state }}
   chocolatey.chocolatey.win_chocolatey:
     name: x2go
     state: "{{ x2goclient_state }}"
-  when: ansible_system|lower == "win32nt"
-  tags: win_chocolatey, x2goclient
+  when: ansible_facts['system'] | lower == "win32nt"
+  tags: 
+    - x2goclient
