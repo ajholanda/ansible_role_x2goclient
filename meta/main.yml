@@ -1,5 +1,6 @@
 galaxy_info:
   author: Adriano J. Holanda
+  namespace: ajholanda
   role_name: x2goclient
   description: Install or uninstall X2Go client for Linux or Windows
   company: University of São Paulo - USP, Brazil
