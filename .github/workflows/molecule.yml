@@ -1,0 +1,45 @@
+---
+name: Molecule CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  molecule:
+    name: Molecule Tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          path: roles/ajholanda.x2goclient
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Cache pip packages
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-molecule
+          restore-keys: |
+            ${{ runner.os }}-pip-
+
+      - name: Install Molecule and dependencies
+        run: |
+          pip install --upgrade pip
+          pip install molecule molecule-plugins[docker] ansible-core
+
+      - name: Run Molecule tests
+        run: molecule test
+        working-directory: roles/ajholanda.x2goclient
+        env:
+          PY_COLORS: '1'
+          ANSIBLE_FORCE_COLOR: '1'
+          ANSIBLE_ROLES_PATH: ${{ github.workspace }}/roles
