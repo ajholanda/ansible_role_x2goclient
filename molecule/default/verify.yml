@@ -1,0 +1,16 @@
+---
+- name: Verify
+  hosts: all
+  gather_facts: true
+  become: true
+  tasks:
+    - name: Gather package facts
+      ansible.builtin.package_facts:
+        manager: auto
+
+    - name: Assert x2goclient is installed
+      ansible.builtin.assert:
+        that:
+          - "'x2goclient' in ansible_facts.packages"
+        fail_msg: "x2goclient package is not installed"
+        success_msg: "x2goclient package is installed successfully"
