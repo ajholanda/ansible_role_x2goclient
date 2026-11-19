@@ -4,18 +4,22 @@ dependency:
 driver:
   name: docker
 platforms:
-  - name: debian12
-    image: geerlingguy/docker-debian12-ansible:latest
-    pre_build_image: true
-  - name: ubuntu2404
-    image: geerlingguy/docker-ubuntu2404-ansible:latest
-    pre_build_image: true
+#  - name: debian13
+#    image: debian:trixie-slim
+#    pre_build_image: false
+#    dockerfile: Dockerfile.j2
+#  - name: ubuntu2404
+#    image: ubuntu:24.04
+#    pre_build_image: false
+#    dockerfile: Dockerfile.j2
   - name: almalinux9
-    image: geerlingguy/docker-almalinux9-ansible:latest
-    pre_build_image: true
-  - name: opensuse15
-    image: geerlingguy/docker-opensuse15-ansible:latest
-    pre_build_image: true
+    image: almalinux:9-minimal
+    pre_build_image: false
+    dockerfile: Dockerfile.j2
+#  - name: opensuse
+#    image: opensuse/tumbleweed
+#    pre_build_image: false
+#    dockerfile: Dockerfile.j2
 provisioner:
   name: ansible
   env:
