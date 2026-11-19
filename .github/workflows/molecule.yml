@@ -1,6 +1,10 @@
 ---
 name: Molecule CI
 
+runs:
+  using: 'node24'
+  main: 'main.js'
+
 on:
   push:
     branches: [main]
