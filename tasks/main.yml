@@ -14,7 +14,7 @@
     repo: 'https://download.opensuse.org/repositories/X11:RemoteDesktop:x2go/openSUSE_Tumbleweed/'
     auto_import_keys: true
     state: "{{ x2goclient_state }}"
-  when: ansible_os_family == "Suse"
+  when: ansible_facts['os_family'] == "Suse"
 
 # AlmaLinux >= 10 is compatible with Wayland
 - name: Make X2Go client {{ x2goclient_state }}
