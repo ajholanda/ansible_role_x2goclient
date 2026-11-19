@@ -1,8 +1,12 @@
 ---
 dependency:
   name: galaxy
+  options:
+    requirements-file: requirements.yml
+
 driver:
   name: docker
+
 platforms:
 #  - name: debian13
 #    image: debian:trixie-slim
