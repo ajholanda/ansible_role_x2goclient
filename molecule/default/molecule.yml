@@ -20,10 +20,11 @@ platforms:
     image: almalinux:9-minimal
     pre_build_image: false
     dockerfile: Dockerfile.j2
-#  - name: opensuse
-#    image: opensuse/tumbleweed
-#    pre_build_image: false
-#    dockerfile: Dockerfile.j2
+  - name: opensuse
+    image: opensuse/tumbleweed
+    pre_build_image: false
+    dockerfile: Dockerfile.j2
+
 provisioner:
   name: ansible
   env:
