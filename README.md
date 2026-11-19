@@ -8,7 +8,15 @@ Ansible role to install or uninstall X2Go client for Linux or Windows.
 
 None.
 
-## Role Variables
+## Role Variable
+
+- `x2goclient_state`: desired state after running package manager task (default: `present`).
+
+## Notes
+
+- On **RedHat family** distributions (AlmaLinux, RHEL), `epel-release` is installed automatically.
+- **AlmaLinux/RHEL >= 10** are skipped for x2goclient installation due to Wayland incompatibility.
+- On **openSUSE**, the X2Go repository is added automatically before installing the client.
 
 - `package_state`: set a default value that can be used as a global variable across roles [ajholanda roles](https://galaxy.ansible.com/ajholanda). 
 - `x2goclient_state`: desired state after running package manager task.
